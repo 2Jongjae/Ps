@@ -28,7 +28,7 @@
 
 <p style="text-align: center;"><그림 2></p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/a00b876a-86dc-4a82-a030-603a9b1593cc/-/preview/" style="width: 208px; height: 171px;"></p>
+<p style="text-align: center;"><img alt="" src="" style="width: 208px; height: 171px;"></p>
 
 <p style="text-align: center;"><그림 3></p>
 
