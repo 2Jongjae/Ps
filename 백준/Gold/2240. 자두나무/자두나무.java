@@ -25,33 +25,21 @@ public class Main {
 			for (int j = 0; j <= m; j++) {
 				for (int k = 1; k < 3; k++) {
 					int check = 1;
-					if (temp == 1)
-						check = 2;
-
-					if (temp == k) {
-						dp[i][j][k] = 1;
-						int case1 = dp[i - 1][j][k];
-						int case2 = 0;
-						if (j > 0)
-							case2 = dp[i - 1][j - 1][check];
-						dp[i][j][k] += Math.max(case1, case2);
-					} else {
-						int case1 = dp[i - 1][j][k];
-						int case2 = 0;
-						if (j > 0)
-							case2 = dp[i - 1][j - 1][check];
-						dp[i][j][k] += Math.max(case1, case2);
-					}
-//					System.out.println(i + "  "+ j + "   " + k + "   " + dp[i][j][k]);
+					if (temp == 1) check = 2;
+					if (temp == k) dp[i][j][k] = 1;
+					int case1 = dp[i - 1][j][k];
+					int case2 = 0;
+					if (j > 0) case2 = dp[i - 1][j - 1][check];
+					dp[i][j][k] += Math.max(case1, case2);
 				}
 			}
 		}
 		int max = 0;
-			for( int  j = 0 ; j <=m ; j ++) {
-				for ( int k= 1 ; k<3 ; k++) {
-					max = Math.max(max, dp[n][j][k]);
-				}
+		for (int j = 0; j <= m; j++) {
+			for (int k = 1; k < 3; k++) {
+				max = Math.max(max, dp[n][j][k]);
 			}
-			System.out.println(max);
 		}
+		System.out.println(max);
+	}
 }
