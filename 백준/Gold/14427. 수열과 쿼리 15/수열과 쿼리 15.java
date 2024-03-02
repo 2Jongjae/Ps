@@ -8,21 +8,11 @@ class Position implements Comparable<Position> {
 		this.mId = mId;
 		this.value = value;
 	}
-
-
 	@Override
 	public int compareTo(Position o) {
 		if (this.value == o.value) return this.mId - o.mId;
 		return this.value - o.value;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Position [mId=" + mId + ", value=" + value + "]";
-	}
-
-	
 	
 }
 
@@ -32,24 +22,23 @@ class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		StringBuilder sb = new StringBuilder();
 		PriorityQueue<Position> pq = new PriorityQueue<Position>();
-		TreeMap<Integer, Integer> tm = new TreeMap<>();
 		int n = Integer.parseInt(st.nextToken());
+		int[] arr = new int[n+1];
 		st = new StringTokenizer(br.readLine());
 		for (int i = 1; i <= n; i++) {
 			Position ps = new Position(i, Integer.parseInt(st.nextToken()));
-			tm.put(i,ps.value);
+			arr[i] = ps.value;
 			pq.add(ps);
 		}
 
 		int query = Integer.parseInt(br.readLine());
 		for (int i = 0; i < query; i++) {
-//			System.out.println("i = " +i + pq);
 			st = new StringTokenizer(br.readLine());
 			int value = Integer.parseInt(st.nextToken());
 			if (value == 2) {
 				while (true) {
 					Position temp = pq.poll();
-					if( temp.value != tm.get(temp.mId)) continue;
+					if( arr[temp.mId] != temp.value) continue;
 					sb.append(temp.mId + "\n");
 					pq.add(temp);
 					break;
@@ -59,7 +48,7 @@ class Main {
 				int start = Integer.parseInt(st.nextToken());
 				int end = Integer.parseInt(st.nextToken());
 				pq.add( new Position(start,end));
-				tm.put(start, end);
+				arr[start] = end;
 			}
 		}
 		System.out.println(sb);
