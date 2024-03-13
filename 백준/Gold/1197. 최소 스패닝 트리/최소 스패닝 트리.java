@@ -54,6 +54,7 @@ public class Main {
     		Position temp = pq.poll();
     		int node = temp.node;
     		int dist = temp.dist;
+    		if(visit[node]) continue;
     		if(!visit[node]) sum += dist;
     		visit[node] = true;
     		for( Position a : graph.get(node)) {
