@@ -45,7 +45,6 @@ public class Main {
 		
 		int max = Integer.MIN_VALUE;
 		for( int i = 1 ; i<= n;i++) {
-			if( i== x) continue;
 			dijkstra(i);
 			int value = party[i] + distance[x];
 			max = Math.max(value, max);
@@ -60,7 +59,7 @@ public class Main {
 		distance = new int[n+1];
 		Arrays.fill(distance, Integer.MAX_VALUE);
 		pq.add(new Position(start,0));
-		
+		distance[start] = 0;
 		while(!pq.isEmpty()) {
 			Position ps = pq.poll();
 			int node = ps.node;
