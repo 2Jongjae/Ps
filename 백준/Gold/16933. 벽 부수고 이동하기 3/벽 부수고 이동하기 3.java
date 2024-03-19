@@ -8,13 +8,7 @@ class Position{
 		this.y = y;
 		this.cnt = cnt;
 	}
-	@Override
-	public String toString() {
-		return "Position [x=" + x + ", y=" + y + ", cnt=" + cnt + "]";
-	}
-	
 }
-
 
 class Main {
 	static int[][] arr;
@@ -47,15 +41,11 @@ class Main {
 		while(!qq.isEmpty()) {
 			ans++;
 			int size = qq.size();
-//			System.out.println(size);
-//			System.out.println(ans);
-//			System.out.println("아침은 = n 밤은 = m " + day + " 걸린 시간 " + ans);
 			for(int i = 0 ; i< size ; i++) {
 				Position temp = qq.poll();
 				int x = temp.x;
 				int y = temp.y;
 				int cnt = temp.cnt;
-//				System.out.println(temp);
 				if( x == n-1 && y == m-1) {
 					System.out.println(ans);
 					return;
@@ -83,18 +73,12 @@ class Main {
 							}
 							
 						}
-						
 					}
 				}
-		
-				
 			} // size
-			if(day == 'm' ) day = 'n';
-			else day ='m';
-			
+			day = (day == 'm') ? 'n' : 'm';
 		} //while
 		System.out.println(-1);
-		
 	}
 	
 }
