@@ -26,22 +26,16 @@ public class Main {
 		}
 		
 		long ans =0;
-		if( idx != 0 ) ans+= arr[0] * cost[0];
-		
-		for( int i = idx ;i <n-1 ; i++) {
-			ans += min * cost[i];
-		}
-		
+
 		min = Integer.MAX_VALUE;
-		for (int i =  0 ; i < idx-1 ; i++) {
+		for (int i =  0 ; i < n-1 ; i++) {
 			if(arr[i] <min) {
 				min =  arr[i];
 			}
 			ans += min*cost[i];
 		}
-		
 		System.out.println(ans);
 		
-		
+				
 	}// main
 }
