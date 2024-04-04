@@ -7,18 +7,15 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		
-		int[] arr = new int[n*n];
+		PriorityQueue<Integer> pq = new PriorityQueue<>( (o1,o2) -> o2-o1);
 		for (int i = 0; i < n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < n; j++) {
-				arr[i*n + j] = (Integer.parseInt(st.nextToken()));
+				pq.add  (Integer.parseInt(st.nextToken()));
 			}
 		}
 		
-		Arrays.sort(arr);
-		bw.append(String.valueOf(arr[(n*n)-n]));
-		bw.flush();
-		bw.close();
-		
+		for(int i = 0 ; i < n- 1; i ++) pq.poll();
+		System.out.println(pq.peek());
 	}
 }
