@@ -1,23 +1,13 @@
-
 import java.util.*;
 import java.io.*;
 class Position{
-    int x, y , dir, color;
+    int x, y , color;
     Position(int x, int y, int color){
         this.x = x;
         this.y = y;
         this.color = color;
     }
-    Position(){
-        
-    }
-    @Override
-    public String toString() {
-        return "Position [x=" + x + ", y=" + y + ", dir=" + dir + ", color=" + color + "]";
-    }
-    
-    
-    
+    Position(){}
 }
 
 
@@ -69,11 +59,6 @@ public class Main {
                 Position a = qq.poll();
                 Position b = qq.poll();
                 
-//                System.out.println("----------------------");
-//                System.out.println(time);
-//                System.out.println(a);
-//                System.out.println(b);
-//                System.out.println("----------------------");
                 visit[a.x][a.y][b.x][b.y] = true;
                 
                 l: for(int k = 0 ; k < 4 ; k ++ ) {
