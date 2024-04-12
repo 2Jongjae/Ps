@@ -8,8 +8,7 @@ public class Main {
 
 		String input = br.readLine();
 		
-		String ans = input; 
-		TreeSet<String> ts = new TreeSet<String>();
+		String ans = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"; 
 		for (int i = 1; i < input.length() - 1; i++) { 
 			for (int j = i + 1; j < input.length(); j++) {
 				String a = reverse(input.substring(0, i));
@@ -17,10 +16,13 @@ public class Main {
 				String c = reverse(input.substring(j));
 
 				String temp = a + b + c;
-				ts.add(temp);
+				if (temp.compareTo(ans) <= 0) { 
+					ans = temp;
+				}
 			}
 		}
-		System.out.println(ts.first());
+		
+		System.out.println(ans);
 	}
 	
 	public static String reverse(String a) {
