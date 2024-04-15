@@ -6,12 +6,6 @@ class Position{
 		this.x = x;
 		this.y = y;
 	}
-	@Override
-	public String toString() {
-		return "Position [x=" + x + ", y=" + y + "]";
-	}
-	
-	
 }
 
 
@@ -61,12 +55,12 @@ public class Main {
     				int xx = Math.abs(jong.x - (x+ deltax[k]));
     				int yy = Math.abs(jong.y - (y + deltay[k]));
     				int dis = xx+ yy;
-//    				System.out.println("dis = " + dis +" xx = " + xx + "  yy ="  + yy);
     				if( min > dis) {
     					idx = k;
     					min = dis;
     				}
     			}
+    			
     			int newX = x + deltax[idx];
     			int newY = y + deltay[idx];
     			
@@ -74,14 +68,12 @@ public class Main {
     				System.out.println("kraj " + (i+1));
     				return;
     			}
-    			Position ps = new Position(newX,newY);
-    			qq.add(ps);
+    			qq.add(new Position(newX,newY));
     		}
     		arr = new int[n][m];
     		for(Position a : qq) arr[a.x][a.y] ++;
     	}
     	
-
     	
     	for(int i = 0; i < n ; i++) {
     		for(int j = 0 ; j < m ; j ++) {
