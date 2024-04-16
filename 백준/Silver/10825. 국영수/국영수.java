@@ -26,7 +26,9 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		TreeSet<Position> ts = new TreeSet<>();
+		StringBuilder sb = new StringBuilder();
+//		TreeSet<Position> ts = new TreeSet<>();
+		List<Position> ts = new ArrayList<>();
 		
 		int n = Integer.parseInt(br.readLine());
 		
@@ -38,8 +40,10 @@ public class Main {
 			int ma = Integer.parseInt(st.nextToken());
 			ts.add(new Position(name,ko,en,ma));
 		}
+		Collections.sort(ts);
 
-		while(!ts.isEmpty()) System.out.println(ts.pollFirst().name);
+		for( Position a : ts) sb.append(a.name +"\n");
+		System.out.println(sb);
 	}
 
 }
