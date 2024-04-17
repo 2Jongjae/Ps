@@ -8,14 +8,13 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
-		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		int[] arr = new int[n];
 		st = new StringTokenizer(br.readLine());
 		for(int i = 0 ; i < n ; i ++) {
 			int input = Integer.parseInt(st.nextToken());
-			pq.add(input);
+			arr[i]= input;
 		}
-		for(int i = 1 ; i < m ; i ++)  pq.poll();
-		
-		System.out.println(pq.peek());
+		Arrays.sort(arr);
+		System.out.println(arr[m-1]);
 	}
 }
