@@ -44,9 +44,6 @@ public class Main {
 								qq.add(adj);
 								visit[adj] = true;
 							} else if(parent[temp] != adj) {
-//								System.out.println("==================");
-//								System.out.println(adj);
-//								System.out.println("==================");
 								flag =true;
 							}
 						}
@@ -54,16 +51,11 @@ public class Main {
 					if(flag) ans--;
 				}
 			}
-			
-			if( ans == 1 ) sb.append("Case " + Tc + ": There is one tree."+"\n");
-			if( ans > 1 ) sb.append("Case " + Tc + ": A forest of "+ans+" trees."+"\n");
-			if( ans == 0 ) sb.append("Case " + Tc + ": No trees."+"\n");
+			sb.append("Case " + Tc);
+			if( ans == 1 ) sb.append(": There is one tree."+"\n");
+			if( ans > 1 ) sb.append(": A forest of "+ans+" trees."+"\n");
+			if( ans == 0 ) sb.append(": No trees."+"\n");
 			Tc++;
-//			for(int i = 1 ; i<=n ; i ++) {
-//				System.out.println(graph.get(i));
-//			}
-//			
-//			System.out.println(Arrays.toString(parent));
 		}
 		System.out.println(sb);
 	}
