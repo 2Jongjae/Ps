@@ -17,6 +17,7 @@ public class Main {
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     	StringTokenizer st;
     	int T = Integer.parseInt(br.readLine());
+    	StringBuilder sb = new StringBuilder();
     	
     	l: for(int tc = 0 ; tc <T  ; tc++) {
     		boolean[] visit = new boolean[10_001];
@@ -34,7 +35,7 @@ public class Main {
     			int id = ps.id;
     			String method = ps.method;
     			if(id == b )  {
-    				System.out.println(method);
+    				sb.append(method + "\n");
     				continue l;
     			}
     			Position psd = dd(id,method);
@@ -63,6 +64,7 @@ public class Main {
     		
     		
     	}
+    	System.out.println(sb);
 
     }
     
