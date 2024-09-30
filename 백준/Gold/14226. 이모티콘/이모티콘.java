@@ -22,7 +22,7 @@ public class Main {
 		boolean[][] visit = new boolean[1001][1001];
 		
 		
-		Queue<Position> qq = new ArrayDeque<>();
+		Queue<Position> qq = new LinkedList<>();
 		qq.add(new Position(1,0,0));
 		visit[1][0] = true;
 		
