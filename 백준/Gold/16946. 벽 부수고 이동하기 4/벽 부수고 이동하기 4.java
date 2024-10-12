@@ -6,22 +6,17 @@ class Position{
 		this.x = x;
 		this.y = y;
 	}
-	@Override
-	public String toString() {
-		return "Position [x=" + x + ", y=" + y + "]";
-	}
-	
 	
 }
 public class Main {
 	static int n, m ;
 	static char[][] arr;
-	static int[][] ans;
 	static int[][] mID;
 	static boolean[][] visit;
 	static int[] dx = {-1,1,0,0};
 	static int[] dy = {0,0,-1,1};
 	static int id = 1;
+	static HashMap<Integer,Integer> hs = new HashMap<>();
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -29,7 +24,6 @@ public class Main {
 		m = Integer.parseInt(st.nextToken());
 		
 		arr = new char[n][m];
-		ans= new int[n][m];
 		mID = new int[n][m];
 		visit = new boolean[n][m];
 		
@@ -67,7 +61,8 @@ public class Main {
 			int xx = x + dx[i];
 			int yy = y + dy[i];
 			if( xx>=0 && xx<n && yy>=0 && yy< m && !check[mID[xx][yy]]) {
-				value += ans[xx][yy];
+				
+				value += hs.getOrDefault(mID[xx][yy], 0);
 				check[mID[xx][yy]] = true;
 			}
 		}
@@ -77,7 +72,6 @@ public class Main {
 	static void bfs(int x, int y) {
 		id++;
 		Queue<Position> qq = new LinkedList<>();
-		ArrayList<Position> li = new ArrayList<>();
 		qq.add(new Position(x,y));
 		int cnt = 1;
 		visit[x][y] = true;
@@ -90,19 +84,14 @@ public class Main {
 					visit[xx][yy] = true;
 					qq.add(new Position(xx,yy));
 					cnt++;
-					li.add(new Position(xx,yy));
+					mID[xx][yy] = id;
 				}
 			}
 		}
 		
-		ans[x][y] = cnt;
 		mID[x][y] = id;
-		for( Position ps : li) {
-			ans[ps.x][ps.y] = cnt;
-			mID[ps.x][ps.y] = id;
-		}
 		
-		
+		hs.put(id, cnt);
 	}
 	
 	
