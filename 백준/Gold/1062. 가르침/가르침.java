@@ -24,6 +24,10 @@ public class Main {
 		visit[13] = true;
 		visit[19] = true;
 		
+		if( m<5 ) {
+			System.out.println(0);
+			return;
+		}
 		
 		dfs(0,5);
 		
